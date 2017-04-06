@@ -1,0 +1,45 @@
+<ion-header>
+  <custom-logged-header [title]="view | uppercase:true"></custom-logged-header>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="view">
+      <ion-segment-button value="chats">
+        Chats
+      </ion-segment-button>
+      <ion-segment-button value="users">
+        Users
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="filterItems($event, view)" [showCancelButton]="true"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div [ngSwitch]="view">
+
+    <ion-list *ngSwitchCase="'chats'" no-lines>
+      <button ion-item *ngFor="let c of chats | async" (click)="onChatOpen(c)">
+        <h2>{{ c.title }}</h2>
+        <p *ngIf="c.lastMessage">{{ c.timestamp | date:'dd/MM/y H:mm' }} - {{ c.lastMessage }}</p>
+        <p *ngIf="!c.lastMessage">No messages</p>
+      </button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'users'" no-lines>
+      <button ion-item *ngFor="let u of users | async" (click)="onChatCreate(u)">
+        <ion-avatar item-left>
+          <img [src]="u.photo || 'assets/images/no-photo.jpg'">
+        </ion-avatar>
+        {{ u.name }}
+      </button>
+    </ion-list>
+
+  </div>
+
+</ion-content>

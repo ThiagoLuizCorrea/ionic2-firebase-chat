@@ -1,0 +1,21 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      ".read": true,
+      "$user_id": {
+        ".indexOn": [
+          "name"
+        ]
+      }
+    },
+    "messages": {
+      "$message_id": {
+        ".indexOn": [
+          "timestamp"
+        ]
+      }
+    }
+  }
+}

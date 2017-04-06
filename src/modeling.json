@@ -1,0 +1,53 @@
+{
+
+    "users": {
+        "pnaves": {
+            "name": "Plínio Naves",
+            "username": "pnaves",
+            "email": "",
+            "password": ""
+        },
+        "fulano": {
+            "name": "Fulano de Tal",
+            "username": "fulano",
+            "email": "",
+            "password": ""
+        }
+    },
+
+    "chats": {
+        "pnaves": {
+            "fulano": {
+                "title": "chat one",
+                "lastMessage": "hello guys!",
+                "timestamp": 454549843225
+            }
+        },
+        "fulano": {
+            "pnaves": {
+                "title": "chat one",
+                "lastMessage": "hello guys!",
+                "timestamp": 454549843225
+            }
+        }
+    },
+
+    "messages": {
+        "pnaves": {
+            "fulano": {
+                "m1": {
+                    "sender": "Plínio Naves",
+                    "senderId": "uuid",
+                    "message": "good night!",
+                    "timestamp": 5474612312
+                },
+                "m2": {
+                    "sender": "Plínio Naves",
+                    "senderId": "uuid",
+                    "message": "good afternoon!",
+                    "timestamp": 5474612456
+                }
+            }
+        }
+    }
+}

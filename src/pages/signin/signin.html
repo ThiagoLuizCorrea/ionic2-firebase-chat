@@ -1,0 +1,30 @@
+<ion-header>
+  <custom-header [title]="'Sign In'"></custom-header>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h1 class="login-icon" text-center>
+      <ion-icon name="chatboxes" color="primary"></ion-icon>
+  </h1>
+
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-icon name="mail" color="primary" item-left></ion-icon>
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock" color="primary" item-left></ion-icon>
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <br>
+    <button ion-button full type="submit" [disabled]="signinForm.invalid">Enter</button>
+  </form>
+
+  <!--<button ion-button clear full text-center (click)="loginFacebook()">With Facebook</button>-->
+  <button ion-button clear full text-center (click)="gotoSignup()">Sign Up</button>
+  <!--<button ion-button clear full text-center (click)="gotoHome()">Home Page</button>-->
+
+</ion-content>
